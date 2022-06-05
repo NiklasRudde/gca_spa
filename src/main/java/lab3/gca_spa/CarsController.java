@@ -31,6 +31,10 @@ public class CarsController {
 
     @PostMapping("/car")
     public void addCar(@RequestBody Car car) {
+        if (car.getName().equals("")) {
+            throw new CarNotFoundException(999L);
+        }
+
         repository.save(car);
     }
 

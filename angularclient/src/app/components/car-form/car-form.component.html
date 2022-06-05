@@ -1,0 +1,17 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name of Car manufacturer</label>
+        <input type="text" formControlName="name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Enter the name">
+      </div>
+      <div *ngIf="!form.get('name')?.valid" class="alert alert-danger">Name is required</div>
+      <button type="submit" [disabled]="!form.get('name')?.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
